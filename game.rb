@@ -23,19 +23,19 @@ class Game
       # validate answer and update score
       if player_answer != question.answer
         @current_player.score -= 1
+        puts "No :("
+      else
+        puts "Correct :)"
       end
 
       # switch current player
-      if @current_player == player1
-        @current_player = player2
-      elsif @current_player == player2
-        @current_player = player1
-      end
+      @current_player == player1 ? @current_player = player2 : @current_player = player1
       
       puts "#{@player1} vs #{@player2}"
+      
     end
-
     puts "----- GAME OVER -----"
+    puts "#{@current_player.name} wins with a score of #{@current_player.score}/3"
     puts "Good bye!"
     exit(0)
 
